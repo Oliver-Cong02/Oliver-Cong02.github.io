@@ -248,12 +248,14 @@ Previously, I obtained my B.E. of Robotics Engineering from <img src="static/ima
 
             <h5 class="subtitle" style="margin-top:30px">Research Interest</h5>
             <p>
-                My research interest lies in broad aspects of <b>Machine Learning</b> topics such as Computer Vision and Natural Language Processing. Currently, I focus on the following topics: 
+                My research interest lies in broad aspects of <b>Computer Vision</b>, <b>Computer Graphics</b> and <b>Machine Learning</b> topics, 
+                more specifically 3D spatiotemporal visual perception, understanding and reasoning of human physical interactions with the world. 
+                I am also interested in understanding generative models (diffusion, flow model...) from both theoretical and application perspectives.
             </p>
-            <ul>  
+            <!-- <ul>  
                 <li><b>Safety and Robustness of Large Generative Models</b>
                 <li><b>Generalized and Safe Embodied AI</b></li>
-            </ul>
+            </ul> -->
 
             <!-- <h5 class="subtitle" style="margin-top:30px">Research Experience</h5>
          
@@ -268,12 +270,12 @@ Previously, I obtained my B.E. of Robotics Engineering from <img src="static/ima
                 <li>[2020-2021]: Work as a research intern at John Hopcroft Center, advised by Dr. <a href="https://scholar.google.com/citations?user=YvN-H_0AAAAJ&hl=zh-CN">Quanshi Zhang</a> on XAI</li>
             </ul> -->
 
-            <h5 class="subtitle" style="margin-top:30px">Reviewer Experience</h5>
+            <!-- <h5 class="subtitle" style="margin-top:30px">Reviewer Experience</h5> -->
             <!-- <p style="color:#566c7f">#Conference(#Paper Number)</p> -->
 
-            <p style="color:#BB2222">
+            <!-- <p style="color:#BB2222">
             I have reviewed 30+ papers for ML conferences like NeurIPS@22/23/24, ICLR@24 and ICML@22/23/24.
-            </p>
+            </p> -->
             
             <!-- <p style="color:#BB2222">
                 ICML'22(2), NeurIPS'22(4), ICML'23(2), NeurIPS'23(6), ICLR'24(4), ICML'24(3)
@@ -290,15 +292,15 @@ Previously, I obtained my B.E. of Robotics Engineering from <img src="static/ima
             (
                 <a id="publication-by-selected" href="javascript:;", onClick="publicationBySelected();">show selected</a> /
                 <a id="publication-by-date" href="javascript:;", onClick="publicationByDate();">show all by date</a> /
-                <a id="publication-by-topic" href="javascript:;", onClick="publicationByTopic();">show all by topic</a>
+                <!-- <a id="publication-by-topic" href="javascript:;", onClick="publicationByTopic();">show all by topic</a> -->
             )
             </h5>
             <p class="subtitle-aux"><span class="bold">Topics:</span>
-                <a href="#topic-vision" onClick="return publicationByTopicSpecific(this)" data-topic="vision">Vision</a> /
+                <!-- <a href="#topic-vision" onClick="return publicationByTopicSpecific(this)" data-topic="vision">Vision</a> /
                 <a href="#topic-nlp" onClick="return publicationByTopicSpecific(this)" data-topic="nlp">NLP</a>/
                 <a href="#topic-nlp" onClick="return publicationByTopicSpecific(this)" data-topic="robo">Robot Learning</a>/
                 <a href="#topic-gm" onClick="return publicationByTopicSpecific(this)" data-topic="gm">GenAI</a>/
-                <a href="#topic-xai" onClick="return publicationByTopicSpecific(this)" data-topic="xai">Explainable AI</a> /
+                <a href="#topic-xai" onClick="return publicationByTopicSpecific(this)" data-topic="xai">Explainable AI</a> / -->
 
                 <span class="note">(*/†: indicates equal contribution.)</span>
             </p>
@@ -348,25 +350,50 @@ Previously, I obtained my B.E. of Robotics Engineering from <img src="static/ima
                         </div>
                     </div> -->
 
-              
+
                     <div id="main-pub-card-container" class="activated hide">
-                        <div class="pub-card" data-topic="gm" data-year="2024" data-selected="false">
+                        <div class="pub-card" data-topic="gm" data-year="2024" data-selected="true">
                             <div class="row">
                                 <div class="col-l col-xs-12 col-lg-3">
                                     <img src="static/image/refdrop.jpg" width="100%" />
                                 </div>
                                 <div class="col-r col-xs-12 col-lg-9">
                                     <div class="pub-card-body">
-                                        <h5 class="title">RefDrop: Controllable Consistency in Image or Video Generation via Reference Feature Guidance</h5>
+                                        <h5 class="title"> OscillationInversion: Understand the structure of Large Flow Model through the Lens of Inversion Method</h5>
                                         <h6 class="authors">
-                                            <a>Jiaojiao Fan</a>,
-                                            <u style="color: #BB2222;">Haotian Xue</u>,
-                                            <a>Qinsheng, Zhang</a>,
-                                            <a> Yongxin Chen</a>
+                                            <u style="color: #BB2222;"> Anonymous</u>,
                                         </h6>
                                         <p class="info">
-                                            <a href="https://arxiv.org/abs/2405.17661" class="conference" style="color:green;"> [NeurIPS 2024] </a>                                
-                                            <a href="https://sbyebss.github.io/refdrop/" class="conference"> [Project Website] </a>
+                                            <a href="https://Oliver-Cong02.github.io" class="conference" style="color:green;"> [Under Review] </a>                                
+                                            <!-- <a href="https://sbyebss.github.io/refdrop/" class="conference"> [Project Website] </a> -->
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+
+                    <div id="main-pub-card-container" class="activated hide">
+                        <div class="pub-card" data-topic="gm" data-year="2024" data-selected="true">
+                            <div class="row">
+                                <div class="col-l col-xs-12 col-lg-3">
+                                    <img src="static/image/refdrop.jpg" width="100%" />
+                                </div>
+                                <div class="col-r col-xs-12 col-lg-9">
+                                    <div class="pub-card-body">
+                                        <h5 class="title">4DRecons: 4D Neural Implicit Deformable Objects Reconstruction from a single RGB-D Camera with Geometrical and Topological Regularizations</h5>
+                                        <h6 class="authors">
+                                            <u style="color: #BB2222;">Haotian Xue</u>,
+                                            <a>Haitao Yang</a>,
+                                            <a> Liyan Chen</a>,
+                                            <a> Kaifeng Zhang</a>,
+                                            <a> Li Yi</a>,
+                                            <a> Chandrajit L. Bajaj</a>,
+                                            <a> Qixing Huang</a>
+                                        </h6>
+                                        <p class="info">
+                                            <a href="https://arxiv.org/abs/2406.10167" class="conference" style="color:green;"> [Under Review] </a>                                
+                                            <!-- <a href="https://sbyebss.github.io/refdrop/" class="conference"> [Project Website] </a> -->
                                         </p>
                                     </div>
                                 </div>
@@ -382,129 +409,24 @@ Previously, I obtained my B.E. of Robotics Engineering from <img src="static/ima
                                 </div>
                                 <div class="col-r col-xs-12 col-lg-9">
                                     <div class="pub-card-body">
-                                        <h5 class="title">QueST: Self-Supervised Skill Abstractions for Learning Continuous Control</h5>
+                                        <h5 class="title">Automatic Controllable Colorization by Imagination</h5>
                                         <h6 class="authors">
-                                            <a>Arthava Mete</a>,
-                                            <u style="color: #BB2222;">Haotian Xue</u>,
-                                            <a> Albert Wilcox</a>,
-                                            <a> Yongxin Chen</a>,
-                                            <a> Animesh Garg <a>
+                                            <u style="color: #BB2222;">Xiaoyan Cong</u>,
+                                            <a> Yue Wu</a>,
+                                            <a> Qifeng Chen</a>,
+                                            <a> Chenyang Lei <a>
                                         </h6>
                                         <p class="info">
-                                            <a href="https://arxiv.org/abs/2407.15840" class="conference" style="color:green;"> [NeurIPS 2024] </a>    
-                                            <a href="https://quest-model.github.io/" class="conference"> [Webpage] </a>                                          
-                                             <a href="https://github.com/pairlab/QueST" class="conference"> [GitHub] </a>
+                                            <a href="https://arxiv.org/abs/2404.05661" class="conference" style="color:green;"> [CVPR 2024] </a>    
+                                            <a href="https://xy-cong.github.io/imagine-colorization/" class="conference"> [Webpage] </a>                                          
+                                             <!-- <a href="https://github.com/pairlab/QueST" class="conference"> [GitHub] </a> -->
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div> 
 
-                    <div id="main-pub-card-container" class="activated hide">
-                        <div class="pub-card" data-topic="gm" data-year="2024" data-selected="true">
-                            <div class="row">
-                                <div class="col-l col-xs-12 col-lg-3">
-                                    <img src="static/image/dp-attacker.jpg" width="100%" />
-                                </div>
-                                <div class="col-r col-xs-12 col-lg-9">
-                                    <div class="pub-card-body">
-                                        <h5 class="title">Diffusion Policy Attacker: Crafting Adversarial
-                                            Attacks for Diffusion-based Policies</h5>
-                                        <h6 class="authors">
-                                            <a>Yipu Chen* </a>,
-                                            <u style="color: #BB2222;">Haotian Xue*</u>,
-                                            <a> Yongxin Chen</a>
-                                        </h6>
-                                        <p class="info">
-                                            <a href="https://arxiv.org/abs/2405.19424" class="conference" style="color:green;"> [NeurIPS 2024] </a>
-                                            <a href="https://sites.google.com/view/diffusion-policy-attacker/" class="conference"> [Project Website] </a>              
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>    
-
-
-                    <div id="main-pub-card-container" class="activated hide">
-                        <div class="pub-card" data-topic="gm" data-year="2024" data-selected="true">
-                            <div class="row">
-                                <div class="col-l col-xs-12 col-lg-3">
-                                    <img src="static/image/pdm-pure.pic.jpg" width="100%" />
-                                </div>
-                                <div class="col-r col-xs-12 col-lg-9">
-                                    <div class="pub-card-body">
-                                        <h5 class="title">Pixel is a Barrier: Diffusion Models Are More Adversarially Robust Than We Think
-                                        </h5>
-                                        <h6 class="authors">
-                                           <u style="color: #BB2222;">Haotian Xue</u>,
-                                           <a> Yongxin Chen</a>
-                                        </h6>
-                                        <p class="info">
-                                            <a href="https://arxiv.org/abs/2404.13320" class="conference" style="color:green;"> [Arxiv] </a>
-                                            <a href="https://github.com/xavihart/PDM-Pure" class="conference"> [GitHub] </a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-         
-
-
-        
-            
-                <div id="main-pub-card-container" class="activated hide">
-                    <div class="pub-card" data-topic="gm" data-year="2023" data-selected="true">
-                        <div class="row">
-                            <div class="col-l col-xs-12 col-lg-3">
-                                <img src="static/image/diff-protect.jpg" width="100%" />
-                            </div>
-                            <div class="col-r col-xs-12 col-lg-9">
-                                <div class="pub-card-body">
-                                    <h5 class="title">Towards More Effective Protection Against Diffusion-Based Mimicry with Score Distillation </h5>
-                                    <h6 class="authors">
-                                        <u style="color: #BB2222;">Haotian Xue</u>,
-                                       <a>Chumeng Liang</a>*,
-                                       <a>Xiaoyu Wu</a>*,
-                                       <a> Yongxin Chen</a>
-                                    </h6>
-                                    <p class="info">
-    
-                                        <a href="https://arxiv.org/abs/2311.12832" class="conference" style="color:green"> [ICLR 2024] </a>
-                                        <a href="https://github.com/xavihart/Diff-Protect" class="conference"> [GitHub] </a>
-                                        <a href="https://iclr.cc/media/iclr-2024/Slides/18759.pdf" class="conference"> [Poster] </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-            <div id="main-pub-card-container" class="activated hide">
-                <div class="pub-card" data-topic="gm" data-year="2023" data-selected="true">
-                    <div class="row">
-                        <div class="col-l col-xs-12 col-lg-3">
-                            <img src="static/image/diff-pgd.png" width="100%"/>
-                        </div>
-                        <div class="col-r col-xs-12 col-lg-9">
-                            <div class="pub-card-body">
-                                <h5 class="title">Diffusion-Based Adversarial Sample Generation for Improved Stealthiness and Controllability </h5>
-                                <h6 class="authors">
-                                    <u style="color: #BB2222;">Haotian Xue</u>,
-                                   <a>Alexandre Araujo</a>,
-                                   <a>Bin Hu</a>,
-                                   <a> Yongxin Chen</a>
-                                </h6>
-                                <p class="info">
-
-                                    <a href="https://arxiv.org/abs/2305.16494" class="conference" style="color: green;"> [NeurIPS 2023] </a>
-                                    <a href="https://github.com/xavihart/Diff-PGD" class="conference"> [GitHub] </a>
-                                    <a href="static/image/poster_diffpgd.pdf" class="conference">[Poster]</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                    <div id="main-pub-card-container" class="activated hide">
+                    <!-- <div id="main-pub-card-container" class="activated hide">
                         <div class="pub-card" data-topic="vision" data-year="2023" data-selected="true">
                             <div class="row">
                                 <div class="col-l col-xs-12 col-lg-3">
@@ -520,164 +442,19 @@ Previously, I obtained my B.E. of Robotics Engineering from <img src="static/ima
                                            <a> Daniel LK Yamins</a>,
                                            <a> Yunzhu Li</a>,
                                            <a> Hsiao-Yu Tung</a>
-
                                         </h6>
                                         <p class="info">
-
                                             <a href="https://arxiv.org/abs/2304.11470" class="conference" style="color: green;"> [NeurIPS 2023] </a>
-
-                                          
-                                            <a href="https://aihub.org/2023/05/25/interview-with-haotian-xue-learning-intuitive-physics-from-videos/" class="conference">[AIhub]</a>
-
-                                            
-
-                                            
+                                            <a href="https://aihub.org/2023/05/25/interview-with-haotian-xue-learning-intuitive-physics-from-videos/" class="conference">[AIhub]</a> 
                                             <a href="static/image/poster_3dintphys.pdf" class="conference">[Poster]</a>
-
                                         </p>
-
                                         <p class="info">
-
                                             [Abridged in CVPR 2023 3DVR & Precognition]
-
-                                        </p>
-
-
-
-                                        
+                                        </p>  
                                     </div>
                                 </div>
                             </div>
-                        </div>
-           
-
-                    <div id="main-pub-card-container" class="activated hide">
-                        <div class="pub-card" data-topic="nlp" data-year="2022" data-selected="false">
-                            <div class="row">
-                                <div class="col-l col-xs-12 col-lg-3">
-                                    <img src="static/image/emnlp22.png" width="100%"/>
-                                </div>
-                                <div class="col-r col-xs-12 col-lg-9">
-                                    <div class="pub-card-body">
-                                        <h5 class="title">Syntax-guided Localized Self-attention by Constituency Syntactic Distance </h5>
-                                        <h6 class="authors">
-                                            <a>Shengyuan Hou</a>*,
-                                            <a>Jushi Kai</a>*,
-                                            <u style="color: #BB2222;">Haotian Xue</u>*,
-                                            <a>Bingyu Zhu</a>,
-                                            <a>Bo  Yuan</a>,
-                                            <a>Longtao Huang</a>,
-                                            <a>Xinbin Wang</a>,
-                                            <a>Zhouhan Lin</a>
-                                        </h6>
-                                        <p class="info">
-                                            <a href="https://aclanthology.org/2022.findings-emnlp.173/" class="conference" style="color: green;">[EMNLP2022, Findings]</a>
-                                            <a href="https://github.com/LUMIA-Group/distance_transformer" class="conference"> [GitHub] </a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div id="main-pub-card-container" class="activated hide">
-                            <div class="pub-card" data-topic="nlp" data-year="2022" data-selected="false">
-                                <div class="row">
-                                    <div class="col-l col-xs-12 col-lg-3">
-                                        <center><img src="static/image/gating_syntax.png" width="100%" /></center>
-                                    </div>
-                                    <div class="col-r col-xs-12 col-lg-9">
-                                        <div class="pub-card-body">
-                                            <h5 class="title">Learning to Adaptively Incorporate External Syntax through Gated Self-Attention</h5>
-                                            <h6 class="authors">
-                                                [TBA]
-                                            </h6>
-                                            <p class="info">
-                                                <a href="" class="conference" style="color:#0d5797;"> [In Submission] </a>                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div id="main-pub-card-container" class="activated hide">
-                            <div class="pub-card" data-topic="xai" data-year="2021" data-selected="false">
-                                <div class="row">
-                                    <div class="col-l col-xs-12 col-lg-3">
-                                        <img src="static/image/aesthetics/demo2.png" width="100%"  />
-                                    </div>
-                                    <div class="col-r col-xs-12 col-lg-9">
-                                        <div class="pub-card-body">
-                                            <h5 class="title">A Hypothesis For The Cognitive Difficulty of Images</h5>
-                                            <h6 class="authors">
-                                                <a>Xu Chen</a>,
-                                                <a>Xin Wang</a>,
-                                                <u style="color: #BB2222;">Haotian Xue</u>,
-                                                <a>Zhengyang Liang</a>,
-                                                <a>Xin Jin</a>,
-                                                <a>Quanshi Zhang</a>
-                                            </h6>
-                                            <p class="info">
-                                                <a href="https://arxiv.org/abs/2108.02646" class="conference">[Arxiv]</a>
-                                                
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-            
-                            <div id="main-pub-card-container" class="activated hide">
-                                <div class="pub-card" data-topic="xai" data-year="2020" data-selected="false">
-                                    <div class="row">
-                                        <div class="col-l col-xs-12 col-lg-3">
-                                            <img src="static/image/eval/iccv.png" width="100%" />
-                                        </div>
-                                        <div class="col-r col-xs-12 col-lg-9">
-                                            <div class="pub-card-body">
-                                                <h5 class="title">Evaluation of Attribution Explanations without Ground Truth </h5>
-                                                <h6 class="authors">
-                                                    <a>Hao Zhang</a>,
-                                                    <u style="color: #BB2222;">Haotian Xue</u>,
-                                                    <a>Jiayi Chen</a>,
-                                                    <a>Yiting Chen</a>,
-                                                    <a>Wen Shen</a>,
-                                                    <a>Quanshi Zhang</a>
-                                                </h6>
-                                                <p class="info">
-                                                    <a href="https://openreview.net/forum?id=WevBjPK4V3j&referrer=%5Bthe%20profile%20of%20Haotian%20Xue%5D(%2Fprofile%3Fid%3D~Haotian_Xue1)" class="conference">[OpenReview]</a>
-                                                    
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-
-                                <div id="main-pub-card-container" class="activated hide">
-                                    <div class="pub-card" data-topic="xai" data-year="2022" data-selected="false">
-                                        <div class="row">
-                                            <div class="col-l col-xs-12 col-lg-3">
-                                                <img src="static/image/active_ad.png" width="100%" />
-                                            </div>
-                                            <div class="col-r col-xs-12 col-lg-9">
-                                                <div class="pub-card-body">
-                                                    <h5 class="title">Active Adversarial Learning</h5>
-                                                    <h6 class="authors">
-                                                        <u style="color: #BB2222;">Haotian Xue</u>,
-                                                    </h6>
-                                                    <p> Advisor: Nanyang Ye</p>
-
-                                                    <p class="info">
-                                                        <a href="" class="conference">[Bachelor Thesis]</a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        </div> -->
 
             </div>
         </div>
