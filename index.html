@@ -3,760 +3,954 @@
 <head>
     <title>Xiaoyan Cong</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Xiaoyan Cong is a 1st-year CS PhD student at Brown University.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Xiaoyan Cong is a 2nd-year CS PhD student at Brown University.">
     <meta name="keywords" content="Xiaoyan Cong, Computer Vision, Computer Graphics, Robotics, Machine Learning">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="static/image/brown.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg: #fafaf8;
+            --bg-card: #ffffff;
+            --text: #1a1a2e;
+            --text-secondary: #555568;
+            --text-muted: #8888a0;
+            --accent: #2d6a4f;
+            --accent-light: #e8f5ee;
+            --border: #e8e8ec;
+            --shadow: 0 2px 12px rgba(0,0,0,0.06);
+            --shadow-hover: 0 6px 24px rgba(0,0,0,0.10);
+            --radius: 12px;
+            --max-width: 920px;
+            --transition: 0.25s ease;
+        }
 
-    <!--[if lt IE 9]>
-      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <style type="text/css">
-body{margin:0;padding:0;}
-a{color:rgb(5, 82, 59)}
-a:hover{color:#0d5797}
-#background{position:fixed;top:0;overflow:hidden;height:0}
-#wave-canvas{display:block;position:relative;top:0;left:5%;width:55%;min-width:850px;height:150px;border:0}
-#main{margin:0 auto;padding:45px 30px 15px;width:100%;min-width:240px;text-align:center;background-color:white}
+        html { scroll-behavior: smooth; }
 
-.main-content{padding:0;text-align:center;cursor:default;text-align:center;}
-@media (min-width: 768px) {
-    .main-content{width:80%;min-width:668px;margin:auto;}
-}
-@media (min-width: 1200px) {
-    .main-content{width:80%;max-width:900px;margin:auto;}
-}
-#main-content-container{margin:0 auto;padding:15px 0 0;max-width:1080px;}
-@media (min-width: 768px) {
-    #main-content-container{padding:15px 0;}
-}
-#main-content-container .col-avatar{text-align:center}
-@media (min-width: 768px) {
-    #main-content-container .col-avatar{text-align:center;margin-left:30px}
-}
-#main-content-container .col-avatar .avatar{z-index:100;width:200px;margin-top:0px;border-radius:10%;box-shadow:#ccc;opacity:1;}
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+        }
 
-#main-content-container .col-info{height:100%;align-items:center;}
-#main-info-container{padding-top:15px}
-#main-info-container .col-name{text-align:center;margin-top:30px}
-@media (min-width: 768px) {
-    #main-info-container .col-name{text-align:left;margin-top:0;padding-left:30px;}
-}
-#main-info-container .col-name .text{text-align:left}
-#main-info-container .col-name .name{margin:0;color:#566c7f;font-size:1.85em;font-family:'Times New Roman', Times, serif}
-#main-info-container .col-name .email{color:#666; font-size:14px}
-#main-info-container .col-link{text-align:center;margin:-5px 0 -25px;}
-#main-info-container .col-link ul {margin:0px auto auto;padding:0;list-style:none;text-align:center}
-#main-info-container .col-link li {display:inline-block;margin:auto;padding:0 10px;color:#ccc;line-height:10px}
-#main-info-container .col-link li a{width:45px;height:45px;color:#ccc;padding:0;font-size:45px;line-height:45px}
-#main-info-container .col-link li a:focus,
-#main-info-container .col-link li a:hover{text-decoration:none;cursor:hand}
-#main-info-container .col-link li a.border{border:1px solid #ccc;border-radius:100%;}
-#main-info-container .col-link li a.padding{padding:0px 0px;font-size:22px}
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+        a:hover { color: #1b4332; }
 
-/* Other */
-.main-more-container{width:100%;padding:0 30px}
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-.main-bio-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px;font-size:1rem;line-height:1.4}
-.main-bio-container .subtitle{margin-top:0px;color:#566c7f;}
+        /* ── Hero Section ── */
+        .hero {
+            padding: 60px 0 40px;
+        }
 
-#main-pub-container{margin:auto;padding: 0 0em;max-width:1080px;text-align:left;padding-top:30px;max-width:1080px}
-#main-pub-container .subtitle{color:#566c7f;}
-#main-pub-container .subtitle a {font-size:18px; color: #96a5b3; font-weight:400}
-#main-pub-container .subtitle a.activated {color:#333333; font-weight:600}
-#main-pub-container .subtitle a.activated:focus,
-#main-pub-container .subtitle a.activated:hover {text-decoration:none;cursor:initial}
+        .hero-inner {
+            display: flex;
+            gap: 48px;
+            align-items: flex-start;
+        }
 
-#main-pub-container .subtitle-aux {font-size:1rem}
-#main-pub-container .subtitle-aux a.activated {color:#333333}
-#main-pub-container .subtitle-aux a.activated:focus,
-#main-pub-container .subtitle-aux a.activated:hover {text-decoration:none;cursor:initial}
-#main-pub-container .subtitle-aux .note{margin-left:1em;color:#999999;text-decoration:none;font-size:14px}
+        .hero-photo {
+            flex-shrink: 0;
+        }
 
-#main-pub-card-container{}
-#main-pub-card-container>h5{margin-bottom: 20px}
-#main-pub-card-container .pub-card{width: 100%;padding-bottom:15px;font-size:1rem}
-#main-pub-card-container .pub-card .col-l{text-align:center;padding-top:10px}
-#main-pub-card-container .pub-card .col-r{padding-top:10px}
-#main-pub-card-container .pub-card img{width:100%;margin:0 auto}
-#main-pub-card-container .pub-card-body{width:100%;background:transparent;padding-left:0px}
-#main-pub-card-container .pub-card .title{font-weight:600;font-size:1rem;margin-bottom:4px;line-height:1.4}
-#main-pub-card-container .pub-card .authors{font-weight:400;color:#666666;margin-bottom:4px;line-height:1.4}
-#main-pub-card-container .pub-card .authors a{color:#666666}
-#main-pub-card-container .pub-card .authors u{color:#333333;font-weight:600;text-decoration:none}
-#main-pub-card-container .pub-card .conference{color:cornflowerblue;font-weight:600}
-#main-pub-card-container .pub-card .note{display:block;color:#999999;text-decoration:none;font-size:14px}
-#main-pub-card-container .pub-card .info{margin-bottom:0;}
-#main-pub-card-container .row{margin:0}
-#main-pub-card-container .col-l,
-#main-pub-card-container .col-r{vertical-align:top;display:inline-block;margin:0;padding-left:0px}
+        .hero-photo img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+        }
 
-#footer{padding:0 0 1.5em;margin-top:2rem;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left;background:#fff}
-#footer .container{max-width:540px;padding:0 45px;position:relative}
-#footer .row{align-items:center}
-#footer .comic{padding-right:15px;}
-#footer .stat{width:200px;overflow:hidden;margin:0 auto -25px;padding-right:15px;}
-#footer .copyright{flex-grow:1;margin:25px auto 5px;text-align:left;display:block;font-size:1rem;line-height:1.4;color:#666666}
-#footer a{color:#666666}
-#footer a:hover{color:#333333}
+        .hero-photo figcaption {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 10px;
+            line-height: 1.4;
+        }
 
-.bold{font-weight:600}
-.highlight{color:#BB2222;font-weight:600}
-.highlight:hover{color:#BB2222;font-weight:600}
-.hide{display:none}
+        .hero-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .hero-name {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-name-cn {
+            font-size: 0.5em;
+            font-weight: 400;
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+            margin-left: 4px;
+        }
+
+        .hero-contact {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .hero-contact p {
+            margin: 2px 0;
+        }
+
+        .hero-bio {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .hero-bio .inline-logo {
+            vertical-align: middle;
+            height: 18px;
+            width: auto;
+            margin: 0 2px;
+        }
+
+        .hero-callout {
+            background: linear-gradient(135deg, var(--accent-light), #f0faf4);
+            border-left: 3px solid var(--accent);
+            padding: 14px 18px;
+            border-radius: 0 8px 8px 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .hero-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .hero-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all var(--transition);
+        }
+
+        .hero-links a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: 0 2px 8px rgba(45,106,79,0.12);
+        }
+
+        .hero-links a i,
+        .hero-links a img {
+            font-size: 16px;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ── Section Common ── */
+        .section {
+            padding: 32px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5em;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        /* ── Publications ── */
+        .pub-filter {
+            display: inline-flex;
+            gap: 4px;
+            margin-bottom: 24px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 3px;
+        }
+
+        .pub-filter button {
+            padding: 6px 18px;
+            border: none;
+            background: transparent;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all var(--transition);
+            font-family: inherit;
+        }
+
+        .pub-filter button.active {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 2px 6px rgba(45,106,79,0.2);
+        }
+
+        .pub-filter button:not(.active):hover {
+            color: var(--text);
+            background: var(--border);
+        }
+
+        .pub-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-left: 12px;
+        }
+
+        .pub-year-heading {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--text);
+            margin: 28px 0 14px;
+            padding-left: 2px;
+        }
+
+        .pub-year-heading:first-child {
+            margin-top: 0;
+        }
+
+        #pub-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .pub-card {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: all var(--transition);
+        }
+
+        .pub-card:hover {
+            box-shadow: var(--shadow-hover);
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+
+        .pub-thumb {
+            flex-shrink: 0;
+            width: 200px;
+        }
+
+        .pub-thumb img {
+            width: 100%;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .pub-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .pub-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+            line-height: 1.45;
+        }
+
+        .pub-authors {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .pub-authors .me {
+            color: #b22222;
+            font-weight: 600;
+        }
+
+        .pub-authors a {
+            color: var(--text-muted);
+        }
+
+        .pub-authors a:hover {
+            color: var(--accent);
+        }
+
+        .pub-tldr {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            padding: 6px 12px;
+            background: var(--bg);
+            border-radius: 6px;
+            line-height: 1.5;
+        }
+
+        .pub-tldr strong {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 11.5px;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            margin-right: 4px;
+        }
+
+        .pub-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .pub-links a {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 4px;
+            font-size: 12.5px;
+            font-weight: 600;
+            transition: all var(--transition);
+        }
+
+        .pub-links .venue {
+            background: #e8f5ee;
+            color: #2d6a4f;
+        }
+        .pub-links .venue:hover { background: #d0ebdf; }
+
+        .pub-links .arxiv {
+            background: #fce8e8;
+            color: #b22222;
+        }
+        .pub-links .arxiv:hover { background: #f5d0d0; }
+
+        .pub-links .project {
+            background: #e8eef8;
+            color: #3366aa;
+        }
+        .pub-links .project:hover { background: #d0def0; }
+
+        .pub-links .course {
+            background: #f0eee8;
+            color: #8a7040;
+        }
+        .pub-links .course:hover { background: #e6e0d4; }
+
+        /* ── Experience ── */
+        .exp-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .exp-card {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            padding: 24px 28px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: all var(--transition);
+        }
+
+        .exp-card:hover {
+            box-shadow: var(--shadow-hover);
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+
+        .exp-logo {
+            flex-shrink: 0;
+            width: 130px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .exp-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .exp-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .exp-role {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .exp-company {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .exp-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .exp-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .exp-meta i {
+            font-size: 12px;
+            color: var(--accent);
+        }
+
+        .exp-advisor {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        /* ── Footer ── */
+        footer {
+            margin-top: 48px;
+            padding: 32px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-map {
+            flex-shrink: 0;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        .footer-text a {
+            color: var(--text-muted);
+        }
+        .footer-text a:hover {
+            color: var(--accent);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .hero { padding: 40px 0 24px; }
+
+            .hero-inner {
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .hero-name { font-size: 1.8em; }
+
+            .hero-bio { text-align: left; }
+
+            .hero-callout { text-align: left; }
+
+            .hero-links { justify-content: center; }
+
+            .pub-card {
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .pub-thumb {
+                width: 100%;
+            }
+
+            .exp-card {
+                padding: 18px 20px;
+                gap: 16px;
+            }
+
+            .exp-logo {
+                width: 72px;
+                height: 52px;
+            }
+
+            .exp-meta {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-text { text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            body { font-size: 14px; }
+            .container { padding: 0 16px; }
+            .hero-links a { padding: 6px 12px; font-size: 12px; }
+            .pub-card { padding: 14px; }
+            .pub-thumb { width: 100%; }
+        }
     </style>
 </head>
 
 <body>
 
-<div id="main">
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-inner">
+            <figure class="hero-photo">
+                <img src="static/image/xiaoyan.jpg" alt="Xiaoyan Cong">
+                <figcaption>Gansu Province, China<br>28th June 2024</figcaption>
+            </figure>
 
-    <div class="main-content">
-        <div id="main-content-container" class="container">
-            <div class="row">
-                <div class="col-avatar">
-                    <img src="static/image/xiaoyan.jpg" class="avatar"/>
-                    <figcaption style="font-size: small;"> Gansu Province, China</figcaption>
-                    <figcaption style="font-size: small;">28th June 2024</figcaption>
+            <div class="hero-info">
+                <h1 class="hero-name">Xiaoyan Cong <span class="hero-name-cn">丛箫言</span></h1>
+                <div class="hero-contact">
+                    <p>Email: xiaoyan_cong [at] brown [dot] edu</p>
+                    <p>Office: 115 Waterman St, Providence, RI 02906</p>
                 </div>
-                <div class="col-sm-12 col-md-9">
-                    <div id="main-info-container">
-                            <div class="col-name">
-                                    <h1 class="name"><span>Xiaoyan Cong 丛箫言 </span>
-                                    <h1 class="email">Email: xiaoyan_cong [at] brown [dot] edu</p>
-                                    <p class="text">Office: 115 Waterman St, Providence, RI 02906</p>
-                                    <p class="text">I am currently a 2nd-year CS Ph.D. student at <img src="static/image/brown.png" alt="brown Logo" style="vertical-align: middle; width: auto; height: 20px;"> <a href="https://cs.brown.edu/">Brown University</a>, advised by
-Prof. <a href="https://cs.brown.edu/people/ssrinath/", target="_blank"> Srinath Sridhar</a>.
-I obtained my B.E. of Robotics Engineering from <img src="static/image/zju.png" alt="zju Logo" style="vertical-align: middle; width: auto; height: 20px;"> <a href="https://www.zju.edu.cn/english/">Zhejiang University</a>  with honors from <a href="http://ckc.zju.edu.cn/ckcen/_t1906/main.psp">Cho Kochen Honors College</a>  in  2024. 
-During my undergraduate, I am grateful to be advised by 
-<a href="https://www.cs.utexas.edu/~huangqx/", target="_blank"> Prof. Qixing Huang</a>,
-<a href="https://ericyi.github.io/", target="_blank"> Prof. Li Yi</a>,
-<a href="https://cqf.io/", target="_blank"> Prof. Qifeng Chen</a>,
-<a href="https://www.xzhou.me/", target="_blank"> Prof. Xiaowei Zhou</a>
-</p>
 
-                    <p style="font-size: 1.1em; font-weight: bold;">📢 I am currently looking for a research internship for 2026. Please reach out if you find I could be a good fit for your team!</p>
-                            </div>
+                <p class="hero-bio">
+                    I am currently a 2nd-year CS Ph.D. student at
+                    <img src="static/image/brown.png" alt="Brown" class="inline-logo">
+                    <a href="https://cs.brown.edu/">Brown University</a>, advised by
+                    Prof. <a href="https://cs.brown.edu/people/ssrinath/" target="_blank">Srinath Sridhar</a>.
+                    I obtained my B.E. of Robotics Engineering from
+                    <img src="static/image/zju.png" alt="ZJU" class="inline-logo">
+                    <a href="https://www.zju.edu.cn/english/">Zhejiang University</a>
+                    with honors from <a href="http://ckc.zju.edu.cn/ckcen/_t1906/main.psp">Cho Kochen Honors College</a> in 2024.
+                    During my undergraduate, I am grateful to be advised by
+                    <a href="https://www.cs.utexas.edu/~huangqx/" target="_blank">Prof. Qixing Huang</a>,
+                    <a href="https://ericyi.github.io/" target="_blank">Prof. Li Yi</a>,
+                    <a href="https://cqf.io/" target="_blank">Prof. Qifeng Chen</a>,
+                    <a href="https://www.xzhou.me/" target="_blank">Prof. Xiaowei Zhou</a>.
+                </p>
 
-                            <div class="col-name">
-                            <i style="font-size:20px" class="fa">&#xf1a0;</i>
-                            <a href="https://scholar.google.com/citations?user=XPrfsPsAAAAJ&hl=en">[Google Scholar]</a>
+                <p class="hero-bio">
+                    I'm always open to collaboration -- please contact me without hesitation!
+                </p>
 
-                            <i style="font-size:24px" class="fa">&#xf09b;</i>
-                            <a href="https://github.com/Oliver-Cong02">[Github]</a>
+                <div class="hero-callout">
+                    I am currently looking for a research internship for 2026. Please reach out if you find I could be a good fit for your team!
+                </div>
 
-                            <i style="font-size:24px" class="fa">&#xf081;</i>
-                            <a href="https://twitter.com/xiaoyan_cong">[Twitter]</a>
+                <div class="hero-links">
+                    <a href="https://scholar.google.com/citations?user=XPrfsPsAAAAJ&hl=en"><i class="fa-brands fa-google-scholar"></i> Scholar</a>
+                    <a href="https://github.com/Oliver-Cong02"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a href="https://twitter.com/xiaoyan_cong"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
+                    <a href="static/image/Xiaoyan_Cong_Resume.pdf"><i class="fa-solid fa-file-pdf"></i> CV (March 2026)</a>
+                    <a href="static/image/WeChat_Xiaoyan.jpg"><img src="static/image/wechat.png" alt="WeChat"> WeChat</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Research Interests -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Research Interests</h2>
+        <p style="color: var(--text-secondary); line-height: 1.8;">
+            My research centers on <strong style="color: var(--text);">multimodal foundation models</strong> for content creation across images, video, motion, and language.
+            I am also broadly interested in <strong style="color: var(--text);">world models</strong> and <strong style="color: var(--text);">3D/4D representations</strong>.
+        </p>
+    </div>
+</section>
 
-                            <i style="font-size:24px" class="fa">&#xf1c1;</i>
-                            <a href="static/image/Xiaoyan_Cong_Resume.pdf"> [CV (March 2026)]</a>
+<!-- Publications -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Publications</h2>
 
-                            <img src="static/image/wechat.png" alt="WeChat" style="vertical-align: middle; width: 24px; height: 24px;">
-                            <a href="static/image/WeChat_Xiaoyan.jpg"> [WeChat]</a>
+        <div style="display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:20px;">
+            <div class="pub-filter">
+                <button id="btn-selected" class="active" onclick="showSelected()">Selected</button>
+                <button id="btn-all" onclick="showAll()">All by Date</button>
+            </div>
+            <span class="pub-note">(*: indicates equal contribution.)</span>
+        </div>
 
+        <div id="pub-cards">
+
+            <div class="pub-card" data-year="2026" data-selected="true">
+                <div class="pub-thumb">
+                    <img src="static/image/UMO.png" alt="UMO">
+                </div>
+                <div class="pub-details">
+                    <h3 class="pub-title">UMO: Unified In-Context Learning Unlocks Motion Foundation Model Priors</h3>
+                    <p class="pub-authors">
+                        <span class="me">Xiaoyan Cong*</span>,
+                        Zekun Li*,
+                        Zhiyang Dou,
+                        Hongyu Li,
+                        Omid Taheri,
+                        Chuan Guo,
+                        Abhay Mittal,
+                        Sizhe An,
+                        Taku Komura,
+                        Wojciech Matusik,
+                        Michael J. Black,
+                        Srinath Sridhar
+                    </p>
+                    <p class="pub-tldr"><strong>TL;DR</strong> We propose a unified formulation that unlocks the generative priors of a text-to-motion foundation model for diverse downstream tasks.</p>
+                    <div class="pub-links">
+                        <a class="venue" href="https://arxiv.org/abs/2603.15975">Preprint 2026</a>
+                        <a class="arxiv" href="https://arxiv.org/abs/2603.15975">arXiv</a>
+                        <a class="project" href="https://oliver-cong02.github.io/UMO.github.io/">Project</a>
                     </div>
                 </div>
             </div>
+
+            <div class="pub-card" data-year="2025" data-selected="true">
+                <div class="pub-thumb">
+                    <img src="static/image/viva.png" alt="VIVA">
+                </div>
+                <div class="pub-details">
+                    <h3 class="pub-title">VIVA: VLM-Guided Instruction-Based Video Editing with Reward Optimization</h3>
+                    <p class="pub-authors">
+                        <span class="me">Xiaoyan Cong</span>,
+                        Haotian Yang,
+                        Angtian Wang,
+                        Yizhi Wang,
+                        Yiding Yang,
+                        Canyu Zhang,
+                        Chongyang Ma
+                    </p>
+                    <p class="pub-tldr"><strong>TL;DR</strong> We propose a scalable instruction-based video editing model that first introduces RL post-training to the video editing domain.</p>
+                    <div class="pub-links">
+                        <a class="venue" href="https://arxiv.org/abs/2512.16906">CVPR 2026</a>
+                        <a class="arxiv" href="https://arxiv.org/abs/2512.16906">arXiv</a>
+                        <a class="project" href="https://viva-paper.github.io/">Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-card" data-year="2026" data-selected="true">
+                <div class="pub-thumb">
+                    <img src="static/image/VideoGPA.png" alt="VideoGPA">
+                </div>
+                <div class="pub-details">
+                    <h3 class="pub-title">VideoGPA: Distilling Geometry Priors for 3D-Consistent Video Generation</h3>
+                    <p class="pub-authors">
+                        Hongyang Du*,
+                        Junjie Ye*,
+                        <span class="me">Xiaoyan Cong*</span>,
+                        Runhao Li,
+                        Jingcheng Ni,
+                        Aman Agarwal,
+                        Zeqi Zhou,
+                        Zekun Li,
+                        Randall Balestriero,
+                        Yue Wang
+                    </p>
+                    <p class="pub-tldr"><strong>TL;DR</strong> We propose an RL post-training framework that aligns video diffusion models toward 3D geometric consistency via DPO.</p>
+                    <div class="pub-links">
+                        <a class="venue" href="https://arxiv.org/abs/2601.23286">Preprint 2026</a>
+                        <a class="arxiv" href="https://arxiv.org/abs/2601.23286">arXiv</a>
+                        <a class="project" href="https://hongyang-du.github.io/VideoGPA-Website/">Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-card" data-year="2025" data-selected="true">
+                <div class="pub-thumb">
+                    <img src="static/image/PackUV.png" alt="PackUV">
+                </div>
+                <div class="pub-details">
+                    <h3 class="pub-title">PackUV: Packed Gaussian UV Maps for 4D Volumetric Video</h3>
+                    <p class="pub-authors">
+                        Aashish Rai,
+                        Angela Xing,
+                        Anushka Agarwal,
+                        <span class="me">Xiaoyan Cong</span>,
+                        Zekun Li,
+                        Tao Lu,
+                        Srinath Sridhar
+                    </p>
+                    <p class="pub-tldr"><strong>TL;DR</strong> We propose a volumetric video representation that maps 4D Gaussians onto UV atlases for codec-compatible, streamable playback, along with the largest multi-view 4D dataset.</p>
+                    <div class="pub-links">
+                        <a class="venue" href="https://ivl.cs.brown.edu/packuv/">CVPR 2026</a>
+                        <a class="arxiv" href="https://arxiv.org/abs/2602.23040">arXiv</a>
+                        <a class="project" href="https://ivl.cs.brown.edu/packuv/">Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-card" data-year="2025" data-selected="true">
+                <div class="pub-thumb">
+                    <img src="static/image/DyTact.png" alt="DyTact">
+                </div>
+                <div class="pub-details">
+                    <h3 class="pub-title">DyTact: Capturing Dynamic Contacts in Hand-Object Manipulation with Deformable Gaussians</h3>
+                    <p class="pub-authors">
+                        <span class="me">Xiaoyan Cong</span>,
+                        Angela Xing,
+                        Chandradeep Pokhariya,
+                        Rao Fu,
+                        Srinath Sridhar
+                    </p>
+                    <p class="pub-tldr"><strong>TL;DR</strong> Markerless capture of dynamic hand-object contacts with deformable Gaussians.</p>
+                    <div class="pub-links">
+                        <a class="venue" href="https://arxiv.org/abs/2506.03103">3DV 2026 Oral</a>
+                        <a class="arxiv" href="https://arxiv.org/abs/2506.03103">arXiv</a>
+                        <a class="project" href="https://oliver-cong02.github.io/DyTact.github.io/">Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-card" data-year="2025" data-selected="true">
+                <div class="pub-thumb">
+                    <img src="static/image/Art3D.png" alt="Art3D">
+                </div>
+                <div class="pub-details">
+                    <h3 class="pub-title">Art3D: Training-Free 3D Generation from Flat-Colored Illustration</h3>
+                    <p class="pub-authors">
+                        <span class="me">Xiaoyan Cong</span>,
+                        Jiayi Shen,
+                        Zekun Li,
+                        Rao Fu,
+                        Tao Lu,
+                        Srinath Sridhar
+                    </p>
+                    <p class="pub-tldr"><strong>TL;DR</strong> We propose a training-free solution for reconstructing geometry from flat-colored images.</p>
+                    <div class="pub-links">
+                        <a class="venue" href="https://ai4cc.net/">CVPRW 2025 Oral</a>
+                        <a class="arxiv" href="https://arxiv.org/abs/2504.10466">arXiv</a>
+                        <a class="project" href="https://joy-jy11.github.io/">Project</a>
+                        <a class="course" href="https://www.cs.brown.edu/courses/csci1430/">Course Project of CSCI1430</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-card" data-year="2025" data-selected="true">
+                <div class="pub-thumb">
+                    <img src="static/image/GenHSI.png" alt="GenHSI">
+                </div>
+                <div class="pub-details">
+                    <h3 class="pub-title">GenHSI: Controllable Generation of Human-Scene Interaction Videos</h3>
+                    <p class="pub-authors">
+                        Zekun Li,
+                        Rui Zhou,
+                        Rahul Sajnani,
+                        <span class="me">Xiaoyan Cong</span>,
+                        Daniel Ritchie,
+                        Srinath Sridhar
+                    </p>
+                    <p class="pub-tldr"><strong>TL;DR</strong> We propose chain-of-frame prompting for VDMs to generate plausible HSI videos without training.</p>
+                    <div class="pub-links">
+                        <a class="venue" href="https://arxiv.org/abs/2506.19840">WACV 2026</a>
+                        <a class="arxiv" href="https://arxiv.org/abs/2506.19840">arXiv</a>
+                        <a class="project" href="https://kunkun0w0.github.io/project/GenHSI/">Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-card" data-year="2024" data-selected="true">
+                <div class="pub-thumb">
+                    <img src="static/image/OscillationInversion.png" alt="Oscillation Inversion">
+                </div>
+                <div class="pub-details">
+                    <h3 class="pub-title">Oscillation Inversion: Training-free Image and Video Enhancement through Oscillated Latents in Large Flow Models</h3>
+                    <p class="pub-authors">
+                        Yan Zheng,
+                        Zhenxiao Liang,
+                        <span class="me">Xiaoyan Cong</span>,
+                        Yi Yang,
+                        Lanqing Guo,
+                        Yuehao Wang,
+                        Peihao Wang,
+                        Zhangyang Wang
+                    </p>
+                    <p class="pub-tldr"><strong>TL;DR</strong> Exploits oscillatory patterns in the inversion of flow models for training-free image and video enhancement.</p>
+                    <div class="pub-links">
+                        <a class="venue" href="https://arxiv.org/abs/2411.11135">AAAI 2026 Oral</a>
+                        <a class="arxiv" href="https://arxiv.org/abs/2411.11135">arXiv</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-card" data-year="2024" data-selected="true">
+                <div class="pub-thumb">
+                    <img src="static/image/4DRecon.png" alt="4DRecons">
+                </div>
+                <div class="pub-details">
+                    <h3 class="pub-title">4DRecons: 4D Neural Implicit Deformable Objects Reconstruction from a single RGB-D Camera with Geometrical and Topological Regularizations</h3>
+                    <p class="pub-authors">
+                        <span class="me">Xiaoyan Cong</span>,
+                        Haitao Yang,
+                        Liyan Chen,
+                        Kaifeng Zhang,
+                        Li Yi,
+                        Chandrajit L. Bajaj,
+                        Qixing Huang
+                    </p>
+                    <p class="pub-tldr"><strong>TL;DR</strong> Reconstruct deformable 3D objects from a single RGB-D video with novel geometrical and topological regularizations.</p>
+                    <div class="pub-links">
+                        <a class="venue" href="https://arxiv.org/abs/2406.10167">CVM 2026</a>
+                        <a class="arxiv" href="https://arxiv.org/abs/2406.10167">arXiv</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-card" data-year="2024" data-selected="true">
+                <div class="pub-thumb">
+                    <img src="static/image/Colorization.png" alt="Colorization">
+                </div>
+                <div class="pub-details">
+                    <h3 class="pub-title">Automatic Controllable Colorization by Imagination</h3>
+                    <p class="pub-authors">
+                        <span class="me">Xiaoyan Cong</span>,
+                        Yue Wu,
+                        Qifeng Chen,
+                        Chenyang Lei
+                    </p>
+                    <p class="pub-tldr"><strong>TL;DR</strong> Automatic colorization via imagined reference images from generative models, enabling iterative editing.</p>
+                    <div class="pub-links">
+                        <a class="venue" href="https://arxiv.org/abs/2404.05661">CVPR 2024</a>
+                        <a class="arxiv" href="https://arxiv.org/abs/2404.05661">arXiv</a>
+                        <a class="project" href="https://xy-cong.github.io/imagine-colorization/">Project</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-</div>
+</section>
 
-<div class="main-content">
-    <div class="main-more-container">
-        <div class="main-bio-container">
-            <h5 class="subtitle">News 📢</h5>
-            <ul>
-<li>
-                    <span style="color:orange">[2025.06] </span> I will join Bytedance Inc. as a Research Scientist Intern at San Jose, CA.
-                </li>
-                <li>
-                    <span style="color:orange">[2024.08] </span> I will start as a CS PhD student at Brown University starting from 2024Fall.
-                </li>
-                
-                
-            </ul>
-
-        </div>
-    </div>
-
-    <div class="main-more-container">
-        <div id="main-pub-container">
-            <h5 class="subtitle">Publications
-            (
-                <a id="publication-by-selected" href="javascript:;", onClick="publicationBySelected();">show selected</a> /
-                <a id="publication-by-date" href="javascript:;", onClick="publicationByDate();">show all by date</a>
-            )
-            <span class="note" style="margin-left:1em;color:#999999;font-size:14px">(*: indicates equal contribution.)</span>
-            </h5>
-
-                    <div id="main-pub-card-container" class="activated hide">
-                        <div class="pub-card" data-topic="gm" data-year="2026" data-selected="true">
-                            <div class="row">
-                                <div class="col-l col-xs-12 col-lg-3">
-                                    <img src="static/image/UMO.png" width="100%" />
-                                </div>
-                                <div class="col-r col-xs-12 col-lg-9">
-                                    <div class="pub-card-body">
-                                        <h5 class="title"> UMO: Unified In-Context Learning Unlocks Motion Foundation Model Priors</h5>
-                                        <h6 class="authors">
-                                            <u style="color: #BB2222;"> Xiaoyan Cong*</u>,
-                                            <a> Zekun Li*</a>,
-                                            <a> Zhiyang Dou</a>,
-                                            <a> Hongyu Li</a>,
-                                            <a> Omid Taheri</a>,
-                                            <a> Chuan Guo</a>,
-                                            <a> Abhay Mittal</a>,
-                                            <a> Sizhe An</a>,
-                                            <a> Taku Komura</a>,
-                                            <a> Wojciech Matusik</a>,
-                                            <a> Michael J. Black</a>,
-                                            <a> Srinath Sridhar</a>
-                                        </h6>
-                                        <p class="info">
-                                            <a href="https://arxiv.org/abs/2603.15975" class="conference" style="color:green;"> [Preprint 2026] </a>
-                                            <a href="https://arxiv.org/abs/2603.15975" class="conference" style="color:red;"> [arXiv] </a>
-                                            <a href="https://oliver-cong02.github.io/UMO.github.io/" class="conference"> [Project Website] </a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    <div id="main-pub-card-container" class="activated hide">
-                        <div class="pub-card" data-topic="gm" data-year="2025" data-selected="true">
-                            <div class="row">
-                                <div class="col-l col-xs-12 col-lg-3">
-                                    <img src="static/image/viva.png" width="100%" />
-                                </div>
-                                <div class="col-r col-xs-12 col-lg-9">
-                                    <div class="pub-card-body">
-                                        <h5 class="title"> VIVA: VLM-Guided Instruction-Based Video Editing with Reward Optimization</h5>
-                                        <h6 class="authors">
-                                            <u style="color: #BB2222;"> Xiaoyan Cong</u>,
-                                            <a> Haotian Yang</a>,
-                                            <a> Angtian Wang</a>,
-                                            <a> Yizhi Wang</a>,
-                                            <a> Yiding Yang</a>,
-                                            <a> Canyu Zhang</a>,
-                                            <a> Chongyang Ma</a>
-                                        </h6>
-                                        <p class="info">
-                                            <a href="https://arxiv.org/abs/2512.16906" class="conference" style="color:green;"> [CVPR 2026] </a>  
-                                            <a href="https://arxiv.org/abs/2512.16906" class="conference" style="color:red;"> [arXiv] </a>                                
-                                            <a href="https://viva-paper.github.io/" class="conference"> [Project Website] </a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="main-pub-card-container" class="activated hide">
-                            <div class="pub-card" data-topic="gm" data-year="2025" data-selected="true">
-                                <div class="row">
-                                    <div class="col-l col-xs-12 col-lg-3">
-                                        <img src="static/image/PackUV.png" width="100%" />
-                                    </div>
-                                    <div class="col-r col-xs-12 col-lg-9">
-                                        <div class="pub-card-body">
-                                            <h5 class="title"> PackUV: Packed Gaussian UV Maps for 4D Volumetric Video</h5>
-                                            <h6 class="authors">
-                                                <a> Aashish Rai</a>,
-                                                <a> Angela Xing</a>,
-                                                <a> Anushka agarwal</a>,
-                                                <u style="color: #BB2222;"> Xiaoyan Cong</u>,
-                                                <a> Zekun Li</a>,
-                                                <a> Tao Lu</a>,
-                                                <a> Srinath Sridhar</a>
-                                            </h6>
-                                            <p class="info">
-                                                <a href="https://ivl.cs.brown.edu/packuv/" class="conference" style="color:green;"> [CVPR 2026] </a>
-                                                <a href="https://arxiv.org/abs/2602.23040" class="conference" style="color:red;"> [arXiv] </a>   
-                                                <a href="https://ivl.cs.brown.edu/packuv/" class="conference"> [Project Website] </a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> 
-
-                    <div id="main-pub-card-container" class="activated hide">
-                        <div class="pub-card" data-topic="gm" data-year="2026" data-selected="true">
-                            <div class="row">
-                                <div class="col-l col-xs-12 col-lg-3">
-                                    <img src="static/image/VideoGPA.png" width="100%" />
-                                </div>
-                                <div class="col-r col-xs-12 col-lg-9">
-                                    <div class="pub-card-body">
-                                        <h5 class="title"> VideoGPA: Distilling Geometry Priors for 3D-Consistent Video Generation</h5>
-                                        <h6 class="authors">
-                                            <a> Hongyang Du*</a>,
-                                            <a> Junjie Ye*</a>,
-                                            <u style="color: #BB2222;"> Xiaoyan Cong*</u>,
-                                            <a> Runhao Li</a>,
-                                            <a> Jingcheng Ni</a>,
-                                            <a> Aman Agarwal</a>,
-                                            <a> Zeqi Zhou</a>,
-                                            <a> Zekun Li</a>,
-                                            <a> Randall Balestriero</a>,
-                                            <a> Yue Wang</a>
-                                        </h6>
-                                        <p class="info">
-                                            <a href="https://arxiv.org/abs/2601.23286" class="conference" style="color:green;"> [Preprint 2026] </a>
-                                            <a href="https://arxiv.org/abs/2601.23286" class="conference" style="color:red;"> [arXiv] </a>
-                                            <a href="https://hongyang-du.github.io/VideoGPA-Website/" class="conference"> [Project Website] </a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    <div id="main-pub-card-container" class="activated hide">
-                        <div class="pub-card" data-topic="gm" data-year="2025" data-selected="true">
-                            <div class="row">
-                                <div class="col-l col-xs-12 col-lg-3">
-                                    <img src="static/image/DyTact.png" width="100%" />
-                                </div>
-                                <div class="col-r col-xs-12 col-lg-9">
-                                    <div class="pub-card-body">
-                                        <h5 class="title"> DyTact: Capturing Dynamic Contacts in Hand-Object Manipulation</h5>
-                                        <h6 class="authors">
-                                            <u style="color: #BB2222;"> Xiaoyan Cong</u>,
-                                            <a> Angela Xing</a>,
-                                            <a> Chandradeep Pokhariya</a>,
-                                            <a> Rao Fu</a>,
-                                            <a> Srinath Sridhar</a>
-                                        </h6>
-                                        <p class="info">
-                                            <a href="https://Oliver-Cong02.github.io" class="conference" style="color:green;"> [3DV 2026 Oral] </a>  
-                                            <a href="https://arxiv.org/abs/2506.03103" class="conference" style="color:red;"> [arXiv] </a>                                
-                                            <a href="https://oliver-cong02.github.io/DyTact.github.io/" class="conference"> [Project Website] </a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
-
-
-                    <div id="main-pub-card-container" class="activated hide">
-                        <div class="pub-card" data-topic="gm" data-year="2025" data-selected="true">
-                            <div class="row">
-                                <div class="col-l col-xs-12 col-lg-3">
-                                    <img src="static/image/Art3D.png" width="100%" />
-                                </div>
-                                <div class="col-r col-xs-12 col-lg-9">
-                                    <div class="pub-card-body">
-                                        <h5 class="title"> Art3D: Training-Free 3D Generation from Flat-Colored Illustration</h5>
-                                        <h6 class="authors">
-                                            <u style="color: #BB2222;"> Xiaoyan Cong</u>,
-                                            <a> Jiayi Shen</a>,
-                                            <a> Zekun Li</a>,
-                                            <a> Rao Fu</a>,
-                                            <a> Tao Lu</a>,
-                                            <a> Srinath Sridhar</a>
-                                        </h6>
-                                        <p class="info">
-                                            <a href="https://ai4cc.net/" class="conference" style="color:green;"> [CVPRW 2025 Oral] </a> 
-                                            <a href="https://arxiv.org/abs/2504.10466" class="conference" style="color:red;"> [arXiv] </a>                                
-                                            <a href="https://joy-jy11.github.io/" class="conference"> [Project Website] </a>
-                                            <a href="https://www.cs.brown.edu/courses/csci1430/" class="conference" style="color:green;">[Course Project of CSCI1430]</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
-
-                    
-
-
-                            
-                        <div id="main-pub-card-container" class="activated hide">
-                            <div class="pub-card" data-topic="gm" data-year="2025" data-selected="true">
-                                <div class="row">
-                                    <div class="col-l col-xs-12 col-lg-3">
-                                        <img src="static/image/GenHSI.png" width="100%" />
-                                    </div>
-                                    <div class="col-r col-xs-12 col-lg-9">
-                                        <div class="pub-card-body">
-                                            <h5 class="title"> GenHSI: Controllable Generation of Human-Scene Interaction Videos</h5>
-                                            <h6 class="authors">
-                                                <a> Zekun Li</a>,
-                                                <a> Rui Zhou</a>, 
-                                                <a> Rahul Sajnani</a>,
-                                                <u style="color: #BB2222;"> Xiaoyan Cong</u>,
-                                                <a> Daniel Ritchie</a>,
-                                                <a> Srinath Sridhar</a>
-                                            </h6>
-                                            <p class="info">
-                                                <a href="https://Oliver-Cong02.github.io" class="conference" style="color:green;"> [WACV 2026] </a>  
-                                                <a href="https://arxiv.org/abs/2506.19840" class="conference" style="color:red;"> [arXiv] </a>                              
-                                                <a href="https://kunkun0w0.github.io/project/GenHSI/" class="conference"> [Project Website] </a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> 
-
-                    <div id="main-pub-card-container" class="activated hide">
-                        <div class="pub-card" data-topic="gm" data-year="2024" data-selected="true">
-                            <div class="row">
-                                <div class="col-l col-xs-12 col-lg-3">
-                                    <img src="static/image/OscillationInversion.png" width="100%" />
-                                </div>
-                                <div class="col-r col-xs-12 col-lg-9">
-                                    <div class="pub-card-body">
-                                        <h5 class="title"> Oscillation Inversion: Training-free Image and Video Enhancement through Oscillated Latents in Large Flow Models </h5>
-                                        <h6 class="authors">
-                                            <a> Yan Zheng</a>,
-                                            <a> Zhenxiao Liang</a>,
-                                            <u style="color: #BB2222;"> Xiaoyan Cong</u>,
-                                            <a> Yi Yang</a>,
-                                            <a> Lanqing Guo</a>,
-                                            <a> Yuehao Wang</a>,
-                                            <a> Peihao Wang</a>,
-                                            <a> Zhangyang Wang</a>
-                                        </h6>
-                                        <p class="info">
-                                            <a href="https://Oliver-Cong02.github.io" class="conference" style="color:green;"> [AAAI 2026 Oral] </a> 
-                                            <a href="https://arxiv.org/abs/2411.11135" class="conference" style="color:red;"> [arXiv] </a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
-
-
-                    <div id="main-pub-card-container" class="activated hide">
-                        <div class="pub-card" data-topic="gm" data-year="2024" data-selected="true">
-                            <div class="row">
-                                <div class="col-l col-xs-12 col-lg-3">
-                                    <img src="static/image/4DRecon.png" width="100%" />
-                                </div>
-                                <div class="col-r col-xs-12 col-lg-9">
-                                    <div class="pub-card-body">
-                                        <h5 class="title">4DRecons: 4D Neural Implicit Deformable Objects Reconstruction from a single RGB-D Camera with Geometrical and Topological Regularizations</h5>
-                                        <h6 class="authors">
-                                            <u style="color: #BB2222;">Xiaoyan Cong</u>,
-                                            <a>Haitao Yang</a>,
-                                            <a> Liyan Chen</a>,
-                                            <a> Kaifeng Zhang</a>,
-                                            <a> Li Yi</a>,
-                                            <a> Chandrajit L. Bajaj</a>,
-                                            <a> Qixing Huang</a>
-                                        </h6>
-                                        <p class="info">
-                                           <a href="https://Oliver-Cong02.github.io" class="conference" style="color:green;"> [CVM 2026] </a> 
-                                            <a href="https://arxiv.org/abs/2406.10167" class="conference" style="color:red;"> [arXiv] </a>  
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
-
-
-                    <div id="main-pub-card-container" class="activated hide">
-                        <div class="pub-card" data-topic="robo" data-year="2024" data-selected="true">
-                            <div class="row">
-                                <div class="col-l col-xs-12 col-lg-3">
-                                    <img src="static/image/Colorization.png" width="100%" />
-                                </div>
-                                <div class="col-r col-xs-12 col-lg-9">
-                                    <div class="pub-card-body">
-                                        <h5 class="title">Automatic Controllable Colorization by Imagination</h5>
-                                        <h6 class="authors">
-                                            <u style="color: #BB2222;">Xiaoyan Cong</u>,
-                                            <a> Yue Wu</a>,
-                                            <a> Qifeng Chen</a>,
-                                            <a> Chenyang Lei <a>
-                                        </h6>
-                                        <p class="info">
-                                            <a href="https://Oliver-Cong02.github.io" class="conference" style="color:green;"> [CVPR 2024] </a>  
-                                            <a href="https://arxiv.org/abs/2404.05661" class="conference" style="color:red;"> [arXiv] </a>  
-                                            <a href="https://xy-cong.github.io/imagine-colorization/" class="conference"> [Webpage] </a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
-
-
+<!-- Experience -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <div class="exp-cards">
+            <div class="exp-card">
+                <div class="exp-logo">
+                    <img src="static/image/bytedance.png" alt="ByteDance">
+                </div>
+                <div class="exp-body">
+                    <div class="exp-role">Research Scientist Intern</div>
+                    <div class="exp-company">ByteDance Inc.</div>
+                    <div class="exp-meta">
+                        <span><i class="fa-regular fa-calendar"></i> Jun 2025 - Jan 2026</span>
+                        <span><i class="fa-solid fa-location-dot"></i> San Jose, CA</span>
+                    </div>
+                    <div class="exp-advisor">Advisor: <a href="http://www.chongyangma.com/">Chongyang Ma</a></div>
+                </div>
             </div>
         </div>
-
-    <div class="main-more-container">
-        <div class="main-bio-container">
-            <h5 class="subtitle">Experience</h5> 
-            <ul class="experience-list">
-                <li>
-                    <span class="experience-title" style="color:#4e613e">[2025.06 - Present] </span> Research Scientist Intern at Bytedance Inc.
-                    <p class="info">
-                        Advisor: <a href="http://www.chongyangma.com/">Chongyang Ma</a>
-                    </p>
-                </li>
-            </ul>
-        </div>
     </div>
-</div>
+</section>
 
-
-
-<div id="footer">
+<!-- Footer -->
+<footer>
     <div class="container">
-        <div class="row">
-            <div class="stat">
+        <div class="footer-inner">
+            <div class="footer-map">
                 <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=ZBR72xYdZxfkPPK7QKap_1gTcpFFgfSAwms6frfTzLE"></script>
             </div>
+            <div class="footer-text">
+                &copy; Xiaoyan Cong
+            </div>
         </div>
     </div>
-</div>
+</footer>
 
-<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr>
-      <td style="padding:20px">
-          <p font-size:small;="">
-              <br>
-              <br>
-              </p ><div style="float:left;">
-                  Updated at Sep. 2024
-              </div>
-              <div style="float:right;">
-                &copy; Xiaoyan Cong, template from <a href="https://jiayuanm.com/">[link]</a > and <a href="https://jonbarron.info">[link]</a >.
-              </div>
-              <br>
-              <br>        
-          <p></p >                           
-      </td>
-    </tr>
-</tbody></table>
+<script>
+(function() {
+    const cards = Array.from(document.querySelectorAll('.pub-card'));
+    const container = document.getElementById('pub-cards');
+    const btnSelected = document.getElementById('btn-selected');
+    const btnAll = document.getElementById('btn-all');
 
-
-
-<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-<script type="text/javascript" src="static/js/jquery.color.min.js"></script>
-<script type="text/javascript">
-
-$.fn.isInViewport = function() {
-    var elementTop = $(this).offset().top;
-    var elementBottom = elementTop + $(this).xouterHeight();
-    var viewportTop = $(window).scrollTop();
-    var viewportBottom = viewportTop + $(window).height();
-    return elementBottom > viewportTop && elementTop < viewportBottom;
-};
-
-var allPublications = null;
-
-function publicationBySelected() {
-    var a = $("#publication-by-selected")
-    if (a.hasClass("activated")) {
-        return ;
+    function clearContainer() {
+        container.innerHTML = '';
     }
 
-    $("#main-pub-container .subtitle a").removeClass("activated");
-    $("#main-pub-container .subtitle-aux a").removeClass("activated");
-    a.addClass("activated");
-
-    $("#main-pub-card-container").html("");
-    for (var pubId = 0; pubId < allPublications.length; pubId++) {
-        var pub = $(allPublications[pubId]);
-        if (pub.data("selected") == true) {
-            $("#main-pub-card-container").append(pub);
-        }
-    }
-}
-
-function publicationByDate() {
-    var a = $("#publication-by-date")
-    if (a.hasClass("activated")) {
-        return ;
-    }
-
-    $("#main-pub-container .subtitle a").removeClass("activated");
-    $("#main-pub-container .subtitle-aux a").removeClass("activated");
-    a.addClass("activated");
-
-    $("#main-pub-card-container").html("");
-    for (var pubId = 0; pubId < allPublications.length; pubId++) {
-        if (pubId == 0 || $(allPublications[pubId-1]).data("year") != $(allPublications[pubId]).data("year")) {
-            var year = $(allPublications[pubId]).data("year");
-            $("#main-pub-card-container").append($("<h5 id='year-" + year.toString() + "'>" + year.toString() + "</h5>"));
-        }
-        $("#main-pub-card-container").append(allPublications[pubId]);
-    }
-}
-
-function publicationByTopicInner() {
-    var a = $("#publication-by-topic")
-    if (a.hasClass("activated")) {
-        return ;
-    }
-    $("#main-pub-container .subtitle a").removeClass("activated");
-    a.addClass("activated");
-
-    $("#main-pub-card-container").html("");
-    for (var topicId in allTopics) {
-        var topic = allTopics[topicId].name;
-        var topicTitle = allTopics[topicId].title;
-        $("#main-pub-card-container").append($("<h5 id='topic-" + topic + "'>" + topicTitle + "</h5>"));
-        for (var pubId = 0; pubId < allPublications.length; pubId++) {
-            var pub = $(allPublications[pubId]);
-            if (pub.data("topic").indexOf(topic) != -1) {
-                $("#main-pub-card-container").append(pub);
+    window.showSelected = function() {
+        btnSelected.classList.add('active');
+        btnAll.classList.remove('active');
+        clearContainer();
+        cards.forEach(function(card) {
+            if (card.dataset.selected === 'true') {
+                container.appendChild(card);
             }
-        }
-    }
-}
-
-function publicationByTopicSpecificInner(a) {
-    if ($(a).hasClass("activated")) {
-        return false;
-    }
-
-    $("#main-pub-container .subtitle-aux a").removeClass("activated");
-    $(a).addClass("activated");
-}
-
-function publicationByTopic() {
-    publicationByTopicInner();
-    publicationByTopicSpecificInner($("#main-pub-container .subtitle-aux a:first"));
-    return true;
-}
-
-function publicationByTopicSpecific(a) {
-    publicationByTopicInner();
-    publicationByTopicSpecificInner(a);
-
-    var hash = a.hash;
-    $(hash).prop('id', hash.substr(1) + '-noscroll');
-    window.location.hash = hash;
-    $(hash + '-noscroll').prop('id', hash.substr(1));
-
-    if (!$(hash).isInViewport()) {
-        $('html, body').animate({
-            scrollTop: $(hash).offset().top
-        }, 1000, function(){
         });
-    }
-
-    return false;
-}
-
-$(function() {
-    getRealSize = function(bgImg) {
-        var img = new Image();
-        img.src = bgImg.attr("src");
-        var width = img.width,
-            height = img.height;
-        return {
-            width: width,
-            height: height
-        }
     };
 
-    getRealWindowSize = function() {
-        var winWidth = null,
-            winHeight = null;
-        if (window.innerWidth) winWidth = window.innerWidth;
-        else if ((document.body) && (document.body.clientWidth)) winWidth = document.body.clientWidth;
-        if (window.innerHeight) winHeight = window.innerHeight;
-        else if ((document.body) && (document.body.clientHeight)) winHeight = document.body.clientHeight;
-        if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth) {
-            winHeight = document.documentElement.clientHeight;
-            winWidth = document.documentElement.clientWidth
-        }
-        return {
-            width: winWidth,
-            height: winHeight
-        }
-    };
+    window.showAll = function() {
+        btnAll.classList.add('active');
+        btnSelected.classList.remove('active');
+        clearContainer();
 
-    fullBg = function() {
-        var bgImg = $("#background");
-        var mainContainer = $("#main");
-        var firstFire = null;
+        var sorted = cards.slice().sort(function(a, b) {
+            return parseInt(b.dataset.year) - parseInt(a.dataset.year);
+        });
 
-        if (bgImg.length == 0) {
-            return ;
-        }
-
-        function resizeImg() {
-            var realSize = getRealSize(bgImg);
-            var imgWidth = realSize.width;
-            var imgHeight = realSize.height;
-
-            if (imgWidth == 0 || imgHeight == 0) {
-                setTimeout(function() {
-                    resizeImg();
-                }, 200);
+        var currentYear = null;
+        sorted.forEach(function(card) {
+            var year = card.dataset.year;
+            if (year !== currentYear) {
+                var heading = document.createElement('h4');
+                heading.className = 'pub-year-heading';
+                heading.textContent = year;
+                container.appendChild(heading);
+                currentYear = year;
             }
-
-            console.log(realSize);
-            var realWinSize = getRealWindowSize();
-            var winWidth = realWinSize.width;
-            var winHeight = realWinSize.height;
-            var widthRatio = winWidth / imgWidth;
-            var heightRatio = winHeight / imgHeight;
-            console.log(realWinSize);
-            if (widthRatio > heightRatio) {
-                bgImg.width(imgWidth * widthRatio + 'px').height(imgHeight * widthRatio + 'px').css({'top':
-                    -(imgHeight * widthRatio - winHeight) / 10 * 5 + 'px', 'left': '0'})
-            } else {
-                bgImg.width(imgWidth * heightRatio + 'px').height(imgHeight * heightRatio + 'px').css({'left':
-                    -(imgWidth * heightRatio - winWidth) / 10 * 3 + 'px', 'top': '0'})
-            }
-        }
-
-        resizeImg();
-        window.onresize = function() {
-            if (firstFire === null) {
-                firstFire = setTimeout(function() {
-                    resizeImg();
-                    firstFire = null
-                }, 100)
-            }
-        }
+            container.appendChild(card);
+        });
     };
 
-    targetColor = $("#main-content-container .name").css("color");
-    animatedLink = function(speed) {
-        $("#main-content-container .col-link li").hover(function() {
-            $(this).find('.icon').animate({
-                color: targetColor,
-                borderColor: targetColor
-            }, speed);
-            $(this).find('.caption').animate({
-                color: targetColor
-            })
-        }, function() {
-            $(this).find('.icon').animate({
-                borderColor: '#cccccc',
-                color: '#cccccc'
-            }, speed);
-            $(this).find('.caption').animate({
-                color: '#cccccc'
-            })
-        })
-    };
-
-    animatedLink(400);
-
-    allPublications = $("#main-pub-card-container .pub-card");
-    allTopicsLink = $("#main-pub-container .subtitle-aux a");
-    allTopics = [];
-    for (var topicId = 0; topicId < allTopicsLink.length; topicId++) {
-        allTopics.push({name: $(allTopicsLink[topicId]).data("topic"), title: $(allTopicsLink[topicId]).html()});
-    }
-
-    $("#publication-by-selected").click();
-    $("#main-pub-card-container").removeClass("hide");
-});
+    // Show selected by default
+    showSelected();
+})();
 </script>
 </body>
 </html>
