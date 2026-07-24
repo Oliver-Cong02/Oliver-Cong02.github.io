@@ -24,7 +24,7 @@
             --shadow: 0 2px 12px rgba(0,0,0,0.06);
             --shadow-hover: 0 6px 24px rgba(0,0,0,0.10);
             --radius: 12px;
-            --max-width: 920px;
+            --max-width: 1040px;
             --transition: 0.25s ease;
         }
 
@@ -120,6 +120,7 @@
         .hero-bio {
             color: var(--text-secondary);
             margin-bottom: 20px;
+            max-width: 680px;
         }
 
         .hero-bio .inline-logo {
@@ -138,12 +139,13 @@
             font-weight: 500;
             color: var(--accent);
             margin-bottom: 20px;
+            max-width: 680px;
         }
 
         .hero-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
 
         .hero-links a {
@@ -250,8 +252,8 @@
         .pub-card {
             display: flex;
             align-items: center;
-            gap: 20px;
-            padding: 20px;
+            gap: 24px;
+            padding: 24px;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
@@ -266,7 +268,7 @@
 
         .pub-thumb {
             flex-shrink: 0;
-            width: 200px;
+            width: 220px;
         }
 
         .pub-thumb img {
@@ -309,6 +311,9 @@
         }
 
         .pub-tldr {
+            display: inline-block;
+            width: fit-content;
+            max-width: 100%;
             font-size: 13px;
             color: var(--text-secondary);
             margin-bottom: 10px;
@@ -557,7 +562,6 @@
                 <h1 class="hero-name">Xiaoyan Cong <span class="hero-name-cn">丛箫言</span></h1>
                 <div class="hero-contact">
                     <p>Email: xiaoyan_cong [at] brown [dot] edu</p>
-                    <p>Office: 115 Waterman St, Providence, RI 02906</p>
                 </div>
 
                 <p class="hero-bio">
@@ -572,8 +576,7 @@
                     During my undergraduate, I am grateful to be advised by
                     <a href="https://www.cs.utexas.edu/~huangqx/" target="_blank">Prof. Qixing Huang</a>,
                     <a href="https://ericyi.github.io/" target="_blank">Prof. Li Yi</a>,
-                    <a href="https://cqf.io/" target="_blank">Prof. Qifeng Chen</a>,
-                    <a href="https://www.xzhou.me/" target="_blank">Prof. Xiaowei Zhou</a>.
+                    <a href="https://cqf.io/" target="_blank">Prof. Qifeng Chen</a>.
                 </p>
 
                 <p class="hero-bio">
@@ -581,14 +584,14 @@
                 </p>
 
                 <div class="hero-callout">
-                    I am currently looking for a research internship for 2026. Please reach out if you find I could be a good fit for your team!
+                    I am currently looking for a research internship for 2027. Please reach out if you find I could be a good fit for your team!
                 </div>
 
                 <div class="hero-links">
+                    <a href="static/image/Xiaoyan_Cong_Resume.pdf"><i class="fa-solid fa-file-pdf"></i> CV (July 2026)</a>
                     <a href="https://scholar.google.com/citations?user=XPrfsPsAAAAJ&hl=en"><i class="fa-brands fa-google-scholar"></i> Scholar</a>
                     <a href="https://github.com/Oliver-Cong02"><i class="fa-brands fa-github"></i> GitHub</a>
                     <a href="https://twitter.com/xiaoyan_cong"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
-                    <a href="static/image/Xiaoyan_Cong_Resume.pdf"><i class="fa-solid fa-file-pdf"></i> CV (May 2026)</a>
                     <a href="static/image/WeChat_Xiaoyan.jpg"><img src="static/image/wechat.png" alt="WeChat"> WeChat</a>
                 </div>
             </div>
@@ -601,8 +604,7 @@
     <div class="container">
         <h2 class="section-title">Research Interests</h2>
         <p style="color: var(--text-secondary); line-height: 1.8;">
-            My research centers on <strong style="color: var(--text);">multimodal foundation models</strong> for content creation across images, video, motion, and language.
-            I am also broadly interested in <strong style="color: var(--text);">world models</strong> and <strong style="color: var(--text);">3D/4D representations</strong>.
+            Develop <strong style="color: var(--text);">foundation models</strong> that enable <strong style="color: var(--text);">multimodal understanding and generation</strong> for content generation and world models.
         </p>
     </div>
 </section>
@@ -624,27 +626,49 @@
 
             <div class="pub-card" data-year="2026" data-selected="true">
                 <div class="pub-thumb">
-                    <img src="static/image/VideoGPA.png" alt="VideoGPA">
+                    <img src="static/image/msforcing.png" alt="Ms. Forcing">
                 </div>
                 <div class="pub-details">
-                    <h3 class="pub-title">VideoGPA: Distilling Geometry Priors for 3D-Consistent Video Generation</h3>
+                    <h3 class="pub-title">Ms. Forcing: Efficient Streaming Video Generation with Multi-Scale Patchification and Attention</h3>
                     <p class="pub-authors">
-                        Hongyang Du*,
-                        Junjie Ye*,
+                        Zekun Li*,
                         <span class="me">Xiaoyan Cong*</span>,
-                        Runhao Li,
-                        Jingcheng Ni,
-                        Aman Agarwal,
-                        Zeqi Zhou,
-                        Zekun Li,
-                        Randall Balestriero,
-                        Yue Wang
+                        Hongyu Li,
+                        Zhiyang Dou,
+                        Chuan Guo,
+                        Abhay Mittal,
+                        Sizhe An,
+                        Srinath Sridhar
                     </p>
-                    <p class="pub-tldr"><strong>TL;DR</strong> We propose an RL post-training framework that aligns video diffusion models toward 3D geometric consistency via DPO.</p>
+                    <p class="pub-tldr"><strong>TL;DR</strong> We propose a real-time streaming video generation framework with multi-scale patchification and attention, achieving high-quality generation at 22.8 FPS on a single H200 GPU.</p>
                     <div class="pub-links">
-                        <a class="venue" href="https://arxiv.org/abs/2601.23286">ICML 2026</a>
-                        <a class="arxiv" href="https://arxiv.org/abs/2601.23286">arXiv</a>
-                        <a class="project" href="https://hongyang-du.github.io/VideoGPA-Website/">Project</a>
+                        <a class="venue" href="https://arxiv.org/abs/2607.20940">Preprint</a>
+                        <a class="arxiv" href="https://arxiv.org/abs/2607.20940">arXiv</a>
+                        <a class="project" href="https://oliver-cong02.github.io/">Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pub-card" data-year="2025" data-selected="true">
+                <div class="pub-thumb">
+                    <img src="static/image/viva.png" alt="VIVA">
+                </div>
+                <div class="pub-details">
+                    <h3 class="pub-title">VIVA: VLM-Guided Instruction-Based Video Editing with Reward Optimization</h3>
+                    <p class="pub-authors">
+                        <span class="me">Xiaoyan Cong</span>,
+                        Haotian Yang,
+                        Angtian Wang,
+                        Yizhi Wang,
+                        Yiding Yang,
+                        Canyu Zhang,
+                        Chongyang Ma
+                    </p>
+                    <p class="pub-tldr"><strong>TL;DR</strong> We propose a scalable instruction-based video editing model that first introduces RL post-training to the video editing domain.</p>
+                    <div class="pub-links">
+                        <a class="venue" href="https://arxiv.org/abs/2512.16906">CVPR 2026</a>
+                        <a class="arxiv" href="https://arxiv.org/abs/2512.16906">arXiv</a>
+                        <a class="project" href="https://viva-paper.github.io/">Project</a>
                     </div>
                 </div>
             </div>
@@ -707,26 +731,29 @@
                 </div>
             </div>
 
-            <div class="pub-card" data-year="2025" data-selected="true">
+            <div class="pub-card" data-year="2026" data-selected="true">
                 <div class="pub-thumb">
-                    <img src="static/image/viva.png" alt="VIVA">
+                    <img src="static/image/VideoGPA.png" alt="VideoGPA">
                 </div>
                 <div class="pub-details">
-                    <h3 class="pub-title">VIVA: VLM-Guided Instruction-Based Video Editing with Reward Optimization</h3>
+                    <h3 class="pub-title">VideoGPA: Distilling Geometry Priors for 3D-Consistent Video Generation</h3>
                     <p class="pub-authors">
-                        <span class="me">Xiaoyan Cong</span>,
-                        Haotian Yang,
-                        Angtian Wang,
-                        Yizhi Wang,
-                        Yiding Yang,
-                        Canyu Zhang,
-                        Chongyang Ma
+                        Hongyang Du*,
+                        Junjie Ye*,
+                        <span class="me">Xiaoyan Cong*</span>,
+                        Runhao Li,
+                        Jingcheng Ni,
+                        Aman Agarwal,
+                        Zeqi Zhou,
+                        Zekun Li,
+                        Randall Balestriero,
+                        Yue Wang
                     </p>
-                    <p class="pub-tldr"><strong>TL;DR</strong> We propose a scalable instruction-based video editing model that first introduces RL post-training to the video editing domain.</p>
+                    <p class="pub-tldr"><strong>TL;DR</strong> We propose an RL post-training framework that aligns video diffusion models toward 3D geometric consistency via DPO.</p>
                     <div class="pub-links">
-                        <a class="venue" href="https://arxiv.org/abs/2512.16906">CVPR 2026</a>
-                        <a class="arxiv" href="https://arxiv.org/abs/2512.16906">arXiv</a>
-                        <a class="project" href="https://viva-paper.github.io/">Project</a>
+                        <a class="venue" href="https://arxiv.org/abs/2601.23286">ICML 2026</a>
+                        <a class="arxiv" href="https://arxiv.org/abs/2601.23286">arXiv</a>
+                        <a class="project" href="https://hongyang-du.github.io/VideoGPA-Website/">Project</a>
                     </div>
                 </div>
             </div>
@@ -926,7 +953,7 @@
                         <span><i class="fa-regular fa-calendar"></i> Jun 2025 - Jan 2026</span>
                         <span><i class="fa-solid fa-location-dot"></i> San Jose, CA</span>
                     </div>
-                    <div class="exp-advisor">Advisor: <a href="http://www.chongyangma.com/">Chongyang Ma</a></div>
+                    <div class="exp-advisor">Advisors: <a href="http://www.chongyangma.com/">Chongyang Ma</a>, <a href="https://yanght321.github.io/">Haotian Yang</a></div>
                 </div>
             </div>
         </div>
